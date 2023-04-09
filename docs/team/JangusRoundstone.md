@@ -54,37 +54,22 @@ found [here.](https://nus-cs2113-ay2223s2.github.io/tp-dashboard/?search=Wang&so
 
 #### User Guide
 
-Add documentations for all the `Tag` features [link](https://github.com/AY2223S2-CS2113-F10-1/tp/pull/91/files) :
-
-- `card tag {-c CARD_UUID | -i CARD_INDEX} -t TAG_NAME ` to attach a tag onto a Card
-- `card untag {-c CARDUUID | -i CARD_INDEX} {-t TAGNAME | -x TAG_INDEX}` to remove the tag from a Card
-- `card view {-c CAR_DUUID | -i CARD_INDEX}` to view the card
-- `tag edit -o OLD_NAME -n NEW_NAME` to edit the name of the Tag
-- `tag list [-c CARD_UUID | -i CARD_INDEX]` to list all the Cards that fall under the Tag
-- `tag delete {-t TAG_NAME | -x TAG_INDEX}` to remove the Tag from the TagList
-- `tag deck {-t TAG_NAME | -x TAG_INDEX} -d DECK_NAME` to add all the cards that fall under a tag into the dck
+Add initial documentations for all the `Tag` features [link](https://github.com/AY2223S2-CS2113-F10-1/tp/pull/91/files) :
 
 #### Developer Guide
 
-- Add Class Diagrams for `CardList` and `TagList`
+- Add in explanation for card feature. 
 
-The Class Diagram for `CardList` can be found below :
-![CardList Class Diagram](../img/CardListClass.svg)
+- Add Sequence Diagram for `card add -q QN -a ANS`, `card delete [-i CARDINDEX | -c CARDUUID]` and `card list`.
 
-The Class Diagram for `TagList` can be found below :
-![TagList Class Diagram](../img/TagListClass.svg)
+The Sequence Diagram for `card add -q QN -a ANS` can be found below :
+![Card Add Sequence Diagram](../img/CardAddSequence.png)
 
-- Add Sequence Diagram for `card view {-c CARDUUID | -i CARDINDEX}`, `card untag {-c CaRDUUID | -t TAGNAME}`
-  and `tag list {-c CARDUUID | -i CARDINDEX}`
+The Sequence Diagram for `card delete [-i CARDINDEX | -c CARDUUID]` can be found below :
+![Card Delete Sequence Diagram](../img/CardDeleteSequence.png)
 
-The Sequence Diagram for `card view {-c CARDUUID | -i CARDINDEX}` can be found below :
-![Card View Sequence Diagram](../img/CardViewSequence.png)
-
-The Sequence Diagram for `card untag {-c CaRDUUID | -t TAGNAME}` can be found below :
-![Card Untag Sequence Diagram](../img/CardUntagSequence.png)
-
-The Sequence Diagram for `tag list {-c CARDUUID | -i CARDINDEX}` can be found below :
-![List Card Under Tag Sequence Diagram](../img/ListCardsUnderTagSequence.png)
+The Sequence Diagram for `card list` can be found below :
+![Card List Sequence Diagram](../img/CardListSequence.png)
 
 
 
