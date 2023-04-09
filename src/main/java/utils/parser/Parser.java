@@ -54,27 +54,27 @@ public class Parser {
         List<String> optionTokens = userInputTokens.subList(1, userInputTokens.size());
 
         switch (keyword) {
-            case DECK_KEYWORD:
-                return deckKeywordParser.parseTokens(optionTokens);
+        case DECK_KEYWORD:
+            return deckKeywordParser.parseTokens(optionTokens);
 
-            case CARD_KEYWORD:
-                return cardKeywordParser.parseTokens(optionTokens);
+        case CARD_KEYWORD:
+            return cardKeywordParser.parseTokens(optionTokens);
 
-            case TAG_KEYWORD:
-                return tagKeywordParser.parseTokens(optionTokens);
+        case TAG_KEYWORD:
+            return tagKeywordParser.parseTokens(optionTokens);
 
-            case HELP_KEYWORD:
-                return new PrintHelpCommand(getTopLevelHelpMessage());
+        case HELP_KEYWORD:
+            return new PrintHelpCommand(getTopLevelHelpMessage());
 
-            case EXPORT_KEYWORD:
-                return new ExportCommand();
+        case EXPORT_KEYWORD:
+            return new ExportCommand();
 
-            case EXIT_KEYWORD:
-                this.setIsExecuting(false);
-                return new TerminateCommand();
+        case EXIT_KEYWORD:
+            this.setIsExecuting(false);
+            return new TerminateCommand();
 
-            default:
-                throw new UnrecognizedCommandException();
+        default:
+            throw new UnrecognizedCommandException();
         }
     }
 

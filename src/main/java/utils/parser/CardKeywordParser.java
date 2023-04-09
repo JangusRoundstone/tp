@@ -1,7 +1,6 @@
 package utils.parser;
 
 import java.util.List;
-
 import model.Card;
 import model.CardSelector;
 import model.TagSelector;
@@ -37,7 +36,6 @@ public class CardKeywordParser extends KeywordParser {
     @Override
     protected Command handleAction(String action, List<String> tokens) throws ParseException, InkaException {
         switch (action) {
-<<<<<<< HEAD
         case ADD_ACTION:
             return handleAdd(tokens);
         case DELETE_ACTION:
@@ -56,24 +54,6 @@ public class CardKeywordParser extends KeywordParser {
             return handleView(tokens);
         default:
             throw new UnrecognizedCommandException();
-=======
-            case ADD_ACTION:
-                return handleAdd(tokens);
-            case DELETE_ACTION:
-                return handleDelete(tokens);
-            case DECK_ACTION:
-                return handleDeck(tokens);
-            case HELP_ACTION:
-                return handleHelp();
-            case LIST_ACTION:
-                return handleList();
-            case TAG_ACTION:
-                return handleTag(tokens);
-            case VIEW_ACTION:
-                return handleView(tokens);
-            default:
-                throw new UnrecognizedCommandException();
->>>>>>> 8dbba37 (Autoindent for checkstyle)
         }
     }
 
@@ -112,20 +92,13 @@ public class CardKeywordParser extends KeywordParser {
         Options viewOptions = new OptionsBuilder(CARD_MODEL, VIEW_ACTION).buildOptions();
         Options deckOptions = new OptionsBuilder(CARD_MODEL, DECK_ACTION).buildOptions();
         // Combine all action
-<<<<<<< HEAD
         String[] actionList = {ADD_ACTION, DELETE_ACTION, LIST_ACTION, TAG_ACTION, UNTAG_ACTION, VIEW_ACTION,
-                               DECK_ACTION};
+                DECK_ACTION};
         String[] headerList = new String[]{"Adding cards", "Deleting cards", "List all cards", "Tagging cards",
-                                           "Untagging cards",
-                                           "View" + " cards", "Adding cards to Deck"};
+                "Untagging cards",
+                "View" + " cards", "Adding cards to Deck"};
         Options[] optionsList = {addOptions, deleteOptions, new Options(), tagOptions, untagOptions, viewOptions,
-                                 deckOptions};
-=======
-        String[] actionList = {ADD_ACTION, DELETE_ACTION, LIST_ACTION, TAG_ACTION, VIEW_ACTION, DECK_ACTION};
-        String[] headerList = new String[]{"Adding cards",
-                "Deleting cards", "List all cards", "Tagging cards", "View cards", "Adding cards to Deck"};
-        Options[] optionsList = {addOptions, deleteOptions, tagOptions, viewOptions, deckOptions};
->>>>>>> 8dbba37 (Autoindent for checkstyle)
+                deckOptions};
         String helpMessage = formatHelpMessage("card", actionList, headerList, optionsList);
 
         return new PrintHelpCommand(helpMessage);
@@ -142,7 +115,6 @@ public class CardKeywordParser extends KeywordParser {
 
     private Command handleTag(List<String> tokens) throws ParseException, InkaException {
 
-<<<<<<< HEAD
         Options tagOptions = new OptionsBuilder(CARD_MODEL, TAG_ACTION).buildOptions();
         CommandLine cmd = parseUsingOptions(tagOptions, tokens);
 
@@ -159,16 +131,6 @@ public class CardKeywordParser extends KeywordParser {
         CardSelector cardSelector = getSelectedCard(cmd);
         TagSelector tagSelector = getSelectedTag(cmd);
         return new RemoveTagFromCardCommand(tagSelector, cardSelector);
-=======
-        String[] tagNameTokens = cmd.getOptionValues("t");
-        if (tagNameTokens.length > 1) {
-            // Notify user
-            String tagName = String.join("-", tagNameTokens);
-            return new AddCardToTagCommand(tagName, cardSelector);
-        } else {
-            return new AddCardToTagCommand(tagNameTokens[0], cardSelector);
-        }
->>>>>>> 8dbba37 (Autoindent for checkstyle)
     }
 
     private Command handleDeck(List<String> tokens) throws ParseException, InkaException {
